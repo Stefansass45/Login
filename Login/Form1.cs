@@ -15,7 +15,7 @@ namespace Login
 
         private void lblLogin_Click(object sender, EventArgs e)
         {
-            
+            //hoe maak ek die login werk werk, gaan ons soos n for loop of if statement gebruik om alles te link met die?
             FrmDash formDash = new FrmDash();
             this.Hide();
             formDash.ShowDialog();
