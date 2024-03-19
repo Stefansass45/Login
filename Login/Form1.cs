@@ -15,6 +15,7 @@ namespace Login
 
         private void lblLogin_Click(object sender, EventArgs e)
         {
+            
             FrmDash formDash = new FrmDash();
             this.Hide();
             formDash.ShowDialog();
@@ -28,14 +29,14 @@ namespace Login
 
         private void lblRegisterLogin_Click(object sender, EventArgs e)
         {
-            pnlLogin.Visible= !pnlLogin.Visible;
-            pnlRegister.Visible= !pnlLogin.Visible;
+            pnlLogin.Visible = !pnlLogin.Visible;
+            pnlRegister.Visible = !pnlLogin.Visible;
         }
 
         private void btnRegisterReg_Click(object sender, EventArgs e)
         {
             pnlLogin.Visible = !pnlLogin.Visible;
-            pnlRegister.Visible= !pnlRegister.Visible;
+            pnlRegister.Visible = !pnlRegister.Visible;
         }
     }
 }
