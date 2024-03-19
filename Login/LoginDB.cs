@@ -21,9 +21,9 @@ namespace Login
 
                 if (usersDB[counter].getUsername() == username) {
                     if (usersDB[counter].getPassword() == password) {
-                    verified=
+                    verified = usersDB[counter].getUsername(); //as dit tot die punt kom is die username reg met die password so dit is wat ek gebruik het om dit te verify
+                    break; //stop die while loop
                     }
-                    else { }
                 }                
                 counter++;
             }
