@@ -6,38 +6,86 @@ using System.Threading.Tasks;
 
 namespace Login
 {
-    internal class LoginDB
+    public class LoginDB
     {
         private List<User> usersDB = new List<User>();
 
         public LoginDB()
         {
 
-            if (usersDB.Count < 0) //dummy login info geadd om te sien of login goed werk of nie
-            {
                 usersDB.Add(new User("Morgan_Freeman", "SpaceTime25"));
                 usersDB.Add(new User("Zuko4Firelord", "WhereAvatar8"));
                 usersDB.Add(new User("Youre_FIU_Lady", "uhmekweetnie57"));
-            }
+                usersDB.Add(new User("admin", "admin"));
+
+
         }
-        public String verifyUser(String username, String password)
+        public bool verifyUser(String username, String password)
         {
             int counter = 0;
-            String verified = "";
+            bool userIsVerified = false;
+
             while (counter < usersDB.Count)
             {
-
                 if (usersDB[counter].getUsername() == username)
                 {
                     if (usersDB[counter].getPassword() == password)
                     {
-                        verified = usersDB[counter].getUsername(); //as dit tot die punt kom is die username reg met die password so dit is wat ek gebruik het om dit te verify
+                        userIsVerified = true;
                         break; //stop die while loop
                     }
                 }
                 counter++;
             }
-            return "";
+            return userIsVerified;
+        }
+
+        public bool isUsernameAvailable(string username)
+        {
+            bool existingUsernameFound = false;
+            foreach (User currentUserRecord in usersDB)
+            {
+                if (currentUserRecord.getUsername() == username)
+                {
+                    existingUsernameFound = true;
+                }
+            }
+            return !existingUsernameFound;
+
+        }
+
+        public User addNewUser(User newUser)
+        {
+            //Check if username already exists
+            if (isUsernameAvailable(newUser.getUsername()))
+            {
+                usersDB.Add(newUser);
+                return newUser;
+            }
+            else
+            {
+                throw new Exception("Username invalid or not unique");
+            }
+
+        }
+
+        public bool deleteUser(String username)
+        {
+
+            bool userDeleted = false;
+
+            for (int i = 0; i < usersDB.Count; i++)
+            {
+                if (usersDB[i].getUsername() == username)
+                {
+                    usersDB.RemoveAt(i);
+                    userDeleted = true;
+                    break;
+                }
+            }
+
+            return userDeleted;
+
         }
 
     }

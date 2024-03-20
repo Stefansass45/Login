@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Login
 {
-    internal class User
+    public class User
     {
         private String username = "";
         private String password = "";
