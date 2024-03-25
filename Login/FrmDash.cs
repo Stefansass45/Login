@@ -16,5 +16,11 @@ namespace Login
         {
             InitializeComponent();
         }
+
+        private void FrmDash_Load(object sender, EventArgs e)
+        {
+            lblUserGreeting.Text = $"Greetings {LoginDB.currentLoggedOnUser.getUsername()}!";
+            this.Text = $"Dashboard - {LoginDB.currentLoggedOnUser.getUsername()}";
+        }
     }
 }

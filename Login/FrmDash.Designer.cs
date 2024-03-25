@@ -28,12 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FrmDash";
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDash));
+            lblUserGreeting = new Label();
+            SuspendLayout();
+            // 
+            // lblUserGreeting
+            // 
+            lblUserGreeting.AutoSize = true;
+            lblUserGreeting.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            lblUserGreeting.Location = new Point(12, 9);
+            lblUserGreeting.Name = "lblUserGreeting";
+            lblUserGreeting.Size = new Size(215, 37);
+            lblUserGreeting.TabIndex = 0;
+            lblUserGreeting.Text = "Greetings User!";
+            // 
+            // FrmDash
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(lblUserGreeting);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "FrmDash";
+            Text = "Dashboard";
+            Load += FrmDash_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label lblUserGreeting;
     }
 }
