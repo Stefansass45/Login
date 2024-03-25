@@ -8,23 +8,26 @@ namespace Login
         private String username = "";
         private String password = "";
 
-        public User(String username, String password)
+        public User(String username, String password, bool skipHashing = false)
         {
-            this.username = username;
-            setPassword(password);
-        }
-
-        public User(String username, String password,bool skipHashing)
-        {
-            this.username = username;
-            this.password = password;
+            if (skipHashing)
+            {
+                this.username = username;
+                this.password = password;
+            }
+            else
+            {
+                this.username = username;
+                setPassword(password);
+            }
         }
 
 
         public String getUsername() { return username; }
         public String getPassword() { return password; }
 
-        public String setPassword(String rawPassword) {
+        public String setPassword(String rawPassword)
+        {
 
             string salt = "0CA7AD4D2C49F55334FC92150E72A024742B9EABCEC93C1077673004BD8CE69E";
 
